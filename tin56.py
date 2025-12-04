@@ -3250,7 +3250,25 @@ QUIZ_DATA_RAW = [
         ], CORRECT_ANSWERS_BY_ID.get(199))
     }
 ]
+for i in range(2, 200):
+    QUIZ_DATA_RAW.append({
+        "id": i,
+        "question": f"Câu hỏi mẫu số {i} về Tin học cơ bản:",
+        "options": [
+            f"Đáp án A cho câu {i}",
+            f"Đáp án B cho câu {i}",
+            f"Đáp án C cho câu {i}",
+            f"Đáp án D cho câu {i}"
+        ],
+        "correct_option_text": get_correct_text([
+            f"Đáp án A cho câu {i}",
+            f"Đáp án B cho câu {i}",
+            f"Đáp án C cho câu {i}",
+            f"Đáp án D cho câu {i}"
+        ], CORRECT_ANSWERS_BY_ID.get(i, 'A'))
+    })
 
+# --- 3. CÁC HẰNG SỐ ---
 # --- 3. CÁC HẰNG SỐ ---
 TOTAL_QUESTIONS = len(QUIZ_DATA_RAW)
 QUESTIONS_PER_EXAM = 30
@@ -3748,4 +3766,5 @@ def main_app():
         render_mock_exam_mode()
 
 if __name__ == "__main__":
+
     main_app()
